@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package calc;
+
+option go_package = "./src/pb/calc";
+
+message Input {
+    int32 value = 1;
+}
+
+message Output {
+    int32 quantity = 1;
+    double average = 2;
+    int32 total = 3;
+}
+
+service CalcService {
+    rpc Calc(stream Input) returns (Output);
+}
